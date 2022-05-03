@@ -1,6 +1,7 @@
 package hiber.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cars")
@@ -15,9 +16,6 @@ public class Car {
 
     @Column(name = "series")
     private int series;
-
-    @OneToOne(mappedBy = "car")
-    private User owner;
 
     public Car() {
     }
@@ -43,13 +41,8 @@ public class Car {
         this.series = series;
     }
 
-    public User getOwner() { return owner; }
-
-    public void setOwner(User owner) { this.owner = owner; }
-
     @Override
     public String toString() {
         return "Car Model = " + model + "\nSeries = " + series;
     }
-
 }
